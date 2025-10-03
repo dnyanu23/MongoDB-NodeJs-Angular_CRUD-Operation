@@ -1,0 +1,24 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()" class="mt-4" *ngIf="editForm">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" />
+    </div>
+
+    <div class="mb-3">
+        <label for="cost" class="form-label">Cost</label>
+        <input type="number" id="cost" class="form-control" formControlName="cost" />
+    </div>
+
+    <div class="mb-3">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" id="company" class="form-control" formControlName="company" />
+    </div>
+
+    <div class="mb-3">
+        <label for="color" class="form-label">Color</label>
+        <input type="text" id="color" class="form-control" formControlName="color" />
+    </div>
+
+    <button type="submit" class="btn btn-success me-2" [disabled]="editForm.invalid">Update</button>
+    <button type="button" class="btn btn-secondary" (click)="backToHome()">Cancel</button>
+</form>

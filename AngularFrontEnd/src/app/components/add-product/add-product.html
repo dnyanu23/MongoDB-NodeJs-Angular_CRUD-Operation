@@ -1,0 +1,44 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="mt-4" novalidate>
+    <div class="mb-4">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" />
+        <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)"
+            class="text-danger mt-1">
+            <div *ngIf="productForm.get('name')?.errors?.['required']">Name is required.</div>
+            <div *ngIf="productForm.get('name')?.errors?.['minlength']">Name must be at least 2 characters.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label for="cost" class="form-label">Cost</label>
+        <input type="number" id="cost" class="form-control" formControlName="cost" />
+        <div *ngIf="productForm.get('cost')?.invalid && (productForm.get('cost')?.dirty || productForm.get('cost')?.touched)"
+            class="text-danger mt-1">
+            <div *ngIf="productForm.get('cost')?.errors?.['required']">Cost is required.</div>
+            <div *ngIf="productForm.get('cost')?.errors?.['min']">Cost must be greater than 0.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label for="company" class="form-label">Company</label>
+        <input type="text" id="company" class="form-control" formControlName="company" />
+        <div *ngIf="productForm.get('company')?.invalid && (productForm.get('company')?.dirty || productForm.get('company')?.touched)"
+            class="text-danger mt-1">
+            <div *ngIf="productForm.get('company')?.errors?.['required']">company is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <label for="color" class="form-label">Color</label>
+        <input type="text" id="color" class="form-control" formControlName="color" />
+        <div *ngIf="productForm.get('color')?.invalid && (productForm.get('color')?.dirty || productForm.get('color')?.touched)"
+            class="text-danger mt-1">
+            <div *ngIf="productForm.get('color')?.errors?.['required']">Color is required.</div>
+        </div>
+    </div>
+
+    <div class="mb-4 ">
+        <button type="submit" class="btn btn-success" [disabled]="productForm.invalid">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="BacktoHome()">Back</button>
+    </div>
+</form>
